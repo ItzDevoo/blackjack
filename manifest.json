@@ -1,0 +1,108 @@
+{
+  "name": "blackjack",
+  "version": "1.0.0",
+  "api_version": "^1.0",
+  "author": "ItzDevoo Dev",
+  "description": "Multiplayer BlackJack for friends and families: sit at a table, bet fake CP against an automatic dealer, and climb the server leaderboard.",
+  "license": "MIT",
+  "type": "standalone",
+  "icon": "Spade",
+  "backend": {
+    "entry": "backend/index.ts"
+  },
+  "frontend": {
+    "entry": "frontend/index.html"
+  },
+  "permissions": [
+    "data.sql:self",
+    "broadcast.clients"
+  ],
+  "sidebar": {
+    "contributes": true,
+    "section": "BlackJack"
+  },
+  "settings": [
+    {
+      "key": "starting_balance",
+      "label": "Starting CP",
+      "description": "How much CP a player receives the first time they open BlackJack.",
+      "type": "number",
+      "default": 1000,
+      "min": 100,
+      "max": 100000,
+      "step": 100
+    },
+    {
+      "key": "daily_bonus",
+      "label": "Daily bonus CP",
+      "description": "CP a player can claim once a day to keep playing. Set to 0 to disable.",
+      "type": "number",
+      "default": 250,
+      "min": 0,
+      "max": 10000,
+      "step": 50
+    },
+    {
+      "key": "decks",
+      "label": "Decks in the shoe",
+      "description": "Number of 52-card decks shuffled together. The shoe reshuffles after about three quarters are dealt.",
+      "type": "number",
+      "default": 6,
+      "min": 1,
+      "max": 8,
+      "step": 1
+    },
+    {
+      "key": "betting_seconds",
+      "label": "Betting window (seconds)",
+      "description": "How long players have to place bets once the first chip goes down.",
+      "type": "number",
+      "default": 15,
+      "min": 5,
+      "max": 60,
+      "step": 1
+    },
+    {
+      "key": "turn_seconds",
+      "label": "Turn timer (seconds)",
+      "description": "How long a player has to act on a hand before they automatically stand.",
+      "type": "number",
+      "default": 20,
+      "min": 8,
+      "max": 90,
+      "step": 1
+    },
+    {
+      "key": "dealer_hits_soft_17",
+      "label": "Dealer hits soft 17",
+      "description": "On: the dealer draws on soft 17 (slightly favours the house). Off: the dealer stands on all 17s.",
+      "type": "boolean",
+      "default": false
+    },
+    {
+      "key": "blackjack_payout",
+      "label": "Blackjack pays",
+      "description": "Payout for a natural blackjack.",
+      "type": "string",
+      "default": "3:2",
+      "enum": ["3:2", "6:5"]
+    },
+    {
+      "key": "allow_member_tables",
+      "label": "Members can open tables",
+      "description": "When off, only moderators can open new tables.",
+      "type": "boolean",
+      "default": true
+    },
+    {
+      "key": "max_tables",
+      "label": "Max open tables",
+      "description": "Upper limit on tables open at once, including the main table.",
+      "type": "number",
+      "default": 8,
+      "min": 1,
+      "max": 30,
+      "step": 1
+    }
+  ]
+}

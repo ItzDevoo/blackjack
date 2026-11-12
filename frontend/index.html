@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BlackJack</title>
+    <!-- Keep these version tokens aligned with manifest.json; they bust asset
+         caches when a new release is installed. -->
+    <link rel="stylesheet" href="./styles.css?v=1.0.0" />
+  </head>
+  <body>
+    <div id="app">
+      <div class="boot"><div class="spinner"></div></div>
+    </div>
+    <div class="toast-host" id="toasts" aria-live="polite"></div>
+
+    <!-- Served by the runtime. Do not bundle or vendor it. -->
+    <script src="/sdk/plugin-frontend.js"></script>
+    <script type="module" src="./app.js?v=1.0.0"></script>
+  </body>
+</html>
